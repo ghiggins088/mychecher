@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Door Layout</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+    .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 0.5in;
+        background: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        box-sizing: border-box;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    td {
+        border: 1px solid #000;
+        padding: 4px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 11pt;
+    }
+    .yellow { background-color: #fff7a8; font-weight: bold; }
+    .green  { background-color: #c9f5c3; font-weight: bold; }
+    .dd, .txt {
+        width: 100%;
+        height: 24px;
+        box-sizing: border-box;
+        font-size: 11pt;
+    }
+    .txt { border: 1px solid #666; }
+
+    /* Print-specific styles */
+    @media print {
+        @page { size: letter portrait; margin: 0.5in; }
+        body { background: white; padding: 0; margin: 0; }
+        .page { box-shadow: none; padding: 0; }
+        .no-print { display: none !important; }
+        input, select { display: none !important; }
+        .print-value {
+            display: inline-block !important;
+            min-height: 20px;
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+    }
+    .print-btn {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        padding: 12px 28px;
+        font-size: 18px;
+        background: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+    .print-btn:hover { background: #0052a3; }
+    .email-btn {
+        position: fixed;
+        top: 15px;
+        right: 180px;
+        padding: 12px 28px;
+        font-size: 18px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+    .email-btn:hover { background: #218838; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Print Form</button>
+<button class="email-btn no-print" onclick="emailForm()">Email Form</button>
+
+<div class="page">
+
+<!-- TABLE A — Header -->
+<table>
+<tr>
+    <td class="yellow">SOLD TO:</td>
+    <td colspan="4"><input type="text" class="txt" id="soldToField"></td>
+    <td class="yellow">ADDRESS</td>
+    <td colspan="4"><input type="text" class="txt"></td>
+</tr>
+<tr>
+    <td class="yellow">JOB</td>
+    <td colspan="4"><input type="text" class="txt" id="jobField"></td>
+    <td style="text-align:center;">11/21/2025</td>
+    <td colspan="4"></td>
+</tr>
+</table>
+
+<!-- TABLE B — Main Door Grid -->
+<table>
+<colgroup>
+    <col style="width:60px"><col style="width:60px"><col style="width:60px"><col style="width:60px">
+    <col style="width:80px"><col style="width:60px"><col style="width:160px">
+    <col style="width:60px"><col style="width:60px"><col style="width:108px">
+</colgroup>
+<tr>
+    <td class="green">Size</td><td class="green">Left</td><td class="green">Right</td><td class="green">Slab</td>
+    <td class="green">Bi Fold</td><td class="green">Qty</td><td class="green">Measurement</td>
+    <td class="green" colspan="3">Barn Door</td>
+</tr>
+<tr><td class="yellow">1/4</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">1/6</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>2/6</option><option>2/4</option><option>4/0</option><option>5/0</option><option>6/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">1/6</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">2/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>2/6</option><option>2/4</option><option>4/0</option><option>5/0</option><option>6/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">1/8</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">2/4</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>2/6</option><option>2/4</option><option>4/0</option><option>5/0</option><option>6/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">2/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">2/6</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="green">French</td><td class="green">Door</td><td class="green">RO</td></tr>
+<tr><td class="yellow">2/6</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">3/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="green">Qty</td><td class="green">Size</td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">2/6</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">3/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option><option>4/8</option><option>4/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">2/8</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">4/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option><option>4/8</option><option>4/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">3/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td class="yellow">5/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option><option>4/8</option><option>4/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">Louver</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">5/4</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><select class="dd"><option></option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option><option>4/8</option><option>4/0</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td class="yellow" colspan="2">6/8 or 8/0</td><td colspan="2"><select class="dd"><option></option><option>6/8</option><option>8/0</option></select></td><td class="yellow">6/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="green" colspan="2">Jam</td><td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td></tr>
+</table>
+
+<!-- TABLE C — Bypass / Pocket -->
+<table>
+<tr>
+    <td class="green">Bpass</td><td class="green" style="width:40px;">QTY</td><td class="green" style="width:110px;">Measurement</td>
+    <td class="green" style="width:40px;">BC</td><td class="green" style="width:80px;">QTY</td><td class="green" style="width:140px;">Measurement</td>
+    <td class="green" style="width:60px;">PKT</td><td class="green" style="width:40px;">QTY</td><td class="green" colspan="2">Measurement</td>
+</tr>
+<tr><td class="yellow">3/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">3/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">2/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td colspan="2"><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">4/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">4/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">2/4</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td colspan="2"><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">4/8</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">4/8</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">2/6</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td colspan="2"><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">5/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">5/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">2/8</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td colspan="2"><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">5/4</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">5/4</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">3/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td colspan="2"><input type="text" class="txt"></td></tr>
+<tr><td class="yellow">6/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td class="yellow">6/0</td><td><select class="dd"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></td><td><input type="text" class="txt"></td><td colspan="4"><input type="text" class="txt"></td></tr>
+</table>
+
+<!-- TABLE 3 — Exterior Doors -->
+<table>
+<tr>
+    <td class="green" colspan="2">Exterior Door</td>
+    <td class="green">L R &amp; Swing</td><td class="green">Size</td><td class="green">Jam</td>
+    <td class="green" colspan="3">RO</td><td class="green" colspan="2">Buck/Block</td>
+</tr>
+<tr>
+    <td class="yellow" colspan="2">Front Door</td>
+    <td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td>
+    <td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td>
+    <td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td>
+    <td colspan="3"><input type="text" class="txt"></td>
+    <td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td>
+</tr>
+<tr>
+    <td class="yellow" colspan="2">Garage SC</td>
+    <td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td>
+    <td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td>
+    <td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td>
+    <td colspan="3"><input type="text" class="txt"></td>
+    <td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td>
+</tr>
+<tr><td colspan="2"><input type="text" class="txt"></td><td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td><td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td><td colspan="3"><input type="text" class="txt"></td><td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td></tr>
+<tr><td colspan="2"><input type="text" class="txt"></td><td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td><td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td><td colspan="3"><input type="text" class="txt"></td><td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td></tr>
+<tr><td colspan="2"><input type="text" class="txt"></td><td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td><td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td><td colspan="3"><input type="text" class="txt"></td><td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td></tr>
+<tr><td colspan="2"><input type="text" class="txt"></td><td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td><td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td><td colspan="3"><input type="text" class="txt"></td><td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td></tr>
+<tr><td colspan="2"><input type="text" class="txt"></td><td><select class="dd"><option></option><option>LHIS</option><option>LHOS</option><option>RHIS</option><option>RHOS</option><option>OS</option><option>IS</option></select></td><td><select class="dd"><option></option><option>3/0</option><option>2/8</option><option>6/0</option><option>5/0</option><option>5/8</option><option>5/4</option></select></td><td><select class="dd"><option></option><option>4 9/16</option><option>5 1/4</option><option>6 9/16</option></select></td><td colspan="3"><input type="text" class="txt"></td><td colspan="2"><select class="dd"><option></option><option>Block</option><option>Buck</option><option>2x4</option><option>2x6</option></select></td></tr>
+</table>
+
+<!-- TABLE 4 — Notes / Add to Order -->
+<table>
+<colgroup><col style="width:200px;"><col></colgroup>
+<tr><td><select class="dd"><option></option><option>Add this to the order</option><option>Notes on this file</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td><select class="dd"><option></option><option>Add this to the order</option><option>Notes on this file</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td><select class="dd"><option></option><option>Add this to the order</option><option>Notes on this file</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td><select class="dd"><option></option><option>Add this to the order</option><option>Notes on this file</option></select></td><td><input type="text" class="txt"></td></tr>
+<tr><td><select class="dd"><option></option><option>Add this to the order</option><option>Notes on this file</option></select></td><td><input type="text" class="txt"></td></tr>
+</table>
+
+</div>
+
+<script>
+function emailForm() {
+    alert('Email button clicked!');
+    const soldToField = document.getElementById('soldToField');
+    const jobField = document.getElementById('jobField');
+    const soldTo = soldToField && soldToField.value.trim() ? soldToField.value.trim() : "Door-Layout";
+    const job = jobField && jobField.value.trim() ? jobField.value.trim() : "";
+    
+    const subject = soldTo + (job ? " - " + job : "");
+    const body = "Please find attached the door layout form for: " + subject + "%0D%0A%0D%0APlease print this form to PDF and attach it to this email before sending.";
+    const mailto = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + body;
+    
+    alert('Opening email with mailto: ' + mailto);
+    window.location.href = mailto;
+}
+
+(function() {
+    const replacements = [];
+    let originalTitle = document.title;
+
+    function getSelectText(el) {
+        return el.selectedIndex >= 0 ? el.options[el.selectedIndex].text : '';
+    }
+
+    function prepareForPrint() {
+        replacements.length = 0;
+        
+        // Set document title using SOLD TO and JOB fields
+        const soldToField = document.getElementById('soldToField');
+        const jobField = document.getElementById('jobField');
+        const soldTo = soldToField && soldToField.value.trim() ? soldToField.value.trim().replace(/\s+/g, "-") : "";
+        const job = jobField && jobField.value.trim() ? jobField.value.trim().replace(/\s+/g, "-") : "";
+        if (soldTo || job) {
+            document.title = (soldTo + (soldTo && job ? "-" : "") + job) || "Door-Layout";
+        }
+        
+        document.querySelectorAll('input[type="text"], select').forEach(el => {
+            const span = document.createElement('span');
+            span.className = 'print-value';
+            span.textContent = el.tagName === 'SELECT' ? getSelectText(el) : (el.value || '');
+            const style = getComputedStyle(el);
+            span.style.fontSize = style.fontSize;
+            span.style.fontFamily = style.fontFamily;
+            span.style.width = style.width;
+            span.style.minHeight = '20px';
+            span.style.display = 'inline-block';
+
+            el.style.display = 'none';
+            el.parentNode.insertBefore(span, el.nextSibling);
+            replacements.push({el, span});
+        });
+    }
+
+    function restore() {
+        // Restore original title
+        document.title = originalTitle;
+        
+        replacements.forEach(o => {
+            if (o.span && o.span.parentNode) o.span.parentNode.removeChild(o.span);
+            if (o.el) o.el.style.display = '';
+        });
+        replacements.length = 0;
+    }
+
+    window.addEventListener('beforeprint', prepareForPrint);
+    window.addEventListener('afterprint', restore);
+})();
+</script>
+</body>
+</html>
